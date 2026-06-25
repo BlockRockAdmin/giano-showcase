@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIANO · Autonomous Trading Organism</title>
+<meta name="description" content="Giano — an autonomous, multi-market algorithmic trading system. Regime-aware capital allocation, management-edge doctrine, LLM-driven decisioning.">
+<style>
+  :root{
+    --bg:#05070d; --panel:#0a0e18; --line:#16203a;
+    --txt:#cdd6e6; --dim:#6b7794; --acc:#4ade80; --acc2:#38bdf8; --warn:#fbbf24;
+    --mono:'SFMono-Regular',ui-monospace,'JetBrains Mono','Cascadia Code',Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--txt); font-family:var(--mono); line-height:1.6;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:44px 44px; background-position:center;
+    background-attachment:fixed;
+  }
+  body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% -10%,rgba(74,222,128,.10),transparent 60%);pointer-events:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+  .logo{font-weight:700;letter-spacing:4px;font-size:20px}
+  .logo b{color:var(--acc)}
+  .pill{font-size:11px;color:var(--acc);border:1px solid var(--acc);border-radius:20px;padding:4px 12px;letter-spacing:1px}
+  .pill .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);margin-right:6px;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+  .hero{padding:90px 0 60px;text-align:center}
+  .hero h1{font-size:clamp(42px,9vw,86px);font-weight:700;letter-spacing:8px;line-height:1;background:linear-gradient(180deg,#fff,var(--acc));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero .sub{color:var(--acc2);letter-spacing:6px;font-size:13px;margin-top:18px;text-transform:uppercase}
+  .hero p{color:var(--dim);max-width:620px;margin:26px auto 0;font-size:15px}
+  .tag{display:inline-block;margin-top:34px;color:var(--txt);border:1px solid var(--line);background:var(--panel);padding:14px 22px;border-radius:10px;font-size:14px}
+  .tag b{color:var(--acc)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:30px 0}
+  .stat{background:var(--panel);padding:26px 16px;text-align:center}
+  .stat .n{font-size:30px;color:var(--acc);font-weight:700}
+  .stat .l{font-size:11px;color:var(--dim);letter-spacing:1px;margin-top:6px;text-transform:uppercase}
+
+  section{padding:54px 0;border-top:1px solid var(--line)}
+  .eyebrow{color:var(--acc2);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:28px;font-weight:700;letter-spacing:1px;margin-bottom:10px}
+  .lead{color:var(--dim);max-width:660px;margin-bottom:30px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;transition:.2s}
+  .card:hover{border-color:var(--acc);transform:translateY(-3px)}
+  .card h3{font-size:16px;color:var(--txt);margin-bottom:8px;display:flex;align-items:center;gap:9px}
+  .card h3 .ic{color:var(--acc)}
+  .card p{font-size:13px;color:var(--dim)}
+
+  .doctrine{display:grid;gap:14px}
+  .principle{background:var(--panel);border-left:3px solid var(--acc);border-radius:0 10px 10px 0;padding:18px 22px}
+  .principle b{color:var(--acc)}
+  .principle span{display:block;color:var(--dim);font-size:13px;margin-top:5px}
+
+  .stack{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{border:1px solid var(--line);background:var(--panel);color:var(--dim);font-size:12px;padding:8px 14px;border-radius:7px}
+  .chip b{color:var(--acc2)}
+
+  .flow{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;font-size:13px;color:var(--dim);overflow-x:auto}
+  .flow .step{color:var(--txt)} .flow .arr{color:var(--acc)}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--dim);font-size:12px}
+  footer b{color:var(--acc)}
+  .disc{font-size:11px;color:#48506a;margin-top:10px;max-width:620px;margin-left:auto;margin-right:auto}
+  a{color:var(--acc2);text-decoration:none}
+  @media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}.hero h1{letter-spacing:4px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo"><b>◢</b> GIANO</div>
+    <div class="pill"><span class="dot"></span>SYSTEM · AUTONOMOUS</div>
+  </header>
+
+  <div class="hero">
+    <h1>GIANO</h1>
+    <div class="sub">Autonomous Multi-Market Trading Organism</div>
+    <p>A self-operating algorithmic system that senses every market, allocates capital where the edge lives, and manages risk with rigid, machine-enforced discipline — 24/7.</p>
+    <div class="tag">Core doctrine — <b>the edge is in the management, not the entry.</b></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">6</div><div class="l">Market Engines</div></div>
+    <div class="stat"><div class="n">24/7</div><div class="l">Autonomous</div></div>
+    <div class="stat"><div class="n">~3s</div><div class="l">Signal → Order</div></div>
+    <div class="stat"><div class="n">LLM</div><div class="l">Driven Decisioning</div></div>
+  </div>
+
+  <section>
+    <div class="eyebrow">Architecture</div>
+    <h2>One organism, many nerves</h2>
+    <p class="lead">Independent engines trade their own markets through isolated broker bridges, coordinated by a macro brain that allocates risk by regime — never amputating a market, always weighting toward the validated edge.</p>
+    <div class="grid">
+      <div class="card"><h3><span class="ic">▣</span> Market Engines</h3><p>Dedicated engines for gold scalping & swing, crypto, FX and equities — each with its own management mechanics (grid add-ons, break-even, trailing, time-exit).</p></div>
+      <div class="card"><h3><span class="ic">◈</span> Macro Brain</h3><p>A regime/sentiment layer publishes risk-on/off bias and volatility-aware sizing consumed by every engine — a meta-allocator that follows the regime, not the hype.</p></div>
+      <div class="card"><h3><span class="ic">⇆</span> Broker Bridges</h3><p>Containerized MT5/REST bridges per account, fully isolated, with a reconciliation layer that treats the broker as the single source of truth.</p></div>
+      <div class="card"><h3><span class="ic">✦</span> LLM Committee</h3><p>Language models interpret news, sentiment and free-text signals — turning unstructured input into structured, pondered trading decisions.</p></div>
+      <div class="card"><h3><span class="ic">⟲</span> Management-Aware Backtester</h3><p>A replay engine that models the actual management (add-ons, BE, trailing, costs) — validating the edge out-of-sample before a single euro is scaled.</p></div>
+      <div class="card"><h3><span class="ic">🛰</span> Live Signal Relay</h3><p>External signals captured and executed in seconds via a low-latency automation chain — with anti-stale and anti-duplicate guards.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Doctrine</div>
+    <h2>Rigid rules, measured truth</h2>
+    <p class="lead">Principles distilled from hundreds of audits — the philosophy that keeps the system honest.</p>
+    <div class="doctrine">
+      <div class="principle"><b>The edge is in the management.</b><span>Entries are commodities; the durable advantage lives in how a position is grown, protected and exited.</span></div>
+      <div class="principle"><b>Validate before you trust.</b><span>Every metric reconciles to the broker. No number drives a decision until it survives out-of-sample, cost-corrected testing.</span></div>
+      <div class="principle"><b>Allocate by regime, not by recency.</b><span>Capital flows to where the edge structurally is — avoiding the performance-chasing trap of short-window optimization.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Signal Relay</div>
+    <h2>From notification to position in seconds</h2>
+    <p class="lead">An automation chain collapses minutes of manual latency into a near-instant, fully background pipeline.</p>
+    <div class="flow">
+      <span class="step">Signal received</span> <span class="arr">→</span> <span class="step">intercept</span> <span class="arr">→</span> <span class="step">secure webhook</span> <span class="arr">→</span> <span class="step">LLM interpretation</span> <span class="arr">→</span> <span class="step">risk &amp; staleness checks</span> <span class="arr">→</span> <span class="step">order placed</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Stack</div>
+    <h2>Built for resilience</h2>
+    <div class="stack">
+      <div class="chip"><b>Python</b> · async core</div>
+      <div class="chip"><b>Docker</b> · isolated services</div>
+      <div class="chip"><b>PostgreSQL / TimescaleDB</b></div>
+      <div class="chip"><b>Redis</b> · state &amp; bus</div>
+      <div class="chip"><b>ZeroMQ</b> · broker bridges</div>
+      <div class="chip"><b>LLMs</b> · committee</div>
+      <div class="chip"><b>Tailscale</b> · private mesh</div>
+      <div class="chip"><b>NAS</b> · disaster recovery</div>
+    </div>
+  </section>
+
+  <footer>
+    <div>◢ <b>GIANO</b> — engineered by BlockRock · MMXXVI</div>
+    <p class="disc">Showcase page. Describes architecture &amp; methodology only — contains no live data, account information, or trading signals. Not financial advice.</p>
+  </footer>
+
+</div>
+</body>
+</html>
