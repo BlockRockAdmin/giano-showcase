@@ -35,13 +35,20 @@
   ::-webkit-scrollbar-thumb{background:rgba(128,128,128,.25);border-radius:3px}
 
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-  header{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+  header{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:12px}
   .logo{font-family:var(--mono);font-weight:600;letter-spacing:4px;font-size:19px}
   .logo b{color:var(--acc)}
+  .hdr-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .pill{font-family:var(--mono);font-size:11px;color:var(--acc);background:rgba(240,251,41,.1);
     border:1px solid rgba(240,251,41,.35);border-radius:4px;padding:5px 12px;letter-spacing:.08em;text-transform:uppercase}
   .pill .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--acc);margin-right:7px;animation:pulse-glow 1.8s infinite}
   @keyframes pulse-glow{0%{box-shadow:0 0 0 0 rgba(240,251,41,.5)}70%{box-shadow:0 0 0 6px rgba(240,251,41,0)}100%{box-shadow:0 0 0 0 rgba(240,251,41,0)}}
+
+  .lang-switch{display:flex;gap:2px;font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .lang-btn{background:transparent;border:none;color:var(--dim);padding:6px 10px;cursor:pointer;letter-spacing:.05em;
+    text-transform:uppercase;transition:.2s ease;font-family:var(--mono)}
+  .lang-btn:hover{color:var(--txt)}
+  .lang-btn.active{color:var(--ink);background:var(--acc)}
 
   .hero{padding:90px 0 60px;text-align:center}
   .hero h1{font-family:var(--mono);font-size:clamp(38px,8vw,72px);font-weight:700;letter-spacing:.08em;line-height:1;color:var(--acc);
@@ -97,6 +104,19 @@
     border:1px solid var(--line);border-radius:8px;padding:24px;font-size:13px;color:var(--dim);overflow-x:auto}
   .flow .step{color:var(--txt)} .flow .arr{color:var(--acc)}
 
+  /* Track record: illustrative chart + timeline */
+  .chart-wrap{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-radius:8px;padding:20px;margin-bottom:22px}
+  .chart-badge{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;
+    margin-bottom:14px;display:inline-block;border:1px dashed var(--line);border-radius:4px;padding:4px 10px}
+  .chart-wrap svg{width:100%;height:auto;display:block}
+  .timeline{display:grid;gap:2px}
+  .tl-item{display:flex;gap:16px;padding:16px 4px;border-top:1px solid var(--line)}
+  .tl-item:first-child{border-top:none}
+  .tl-dot{width:9px;height:9px;border-radius:50%;background:var(--acc);margin-top:6px;flex:0 0 auto;box-shadow:0 0 0 4px rgba(240,251,41,.12)}
+  .tl-body b{font-family:var(--mono);color:var(--txt);display:block;margin-bottom:3px;font-size:14px;font-weight:600}
+  .tl-body span{color:var(--dim);font-size:13px}
+
   .creator{text-align:center}
   .creator .lead{margin-left:auto;margin-right:auto}
   .avatar{width:78px;height:78px;border-radius:50%;border:2px solid var(--acc);margin:0 auto 18px;display:block;
@@ -114,93 +134,232 @@
 
   <header>
     <div class="logo"><b>◢</b> GIANO</div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <a class="tg-link" href="https://t.me/CHANGE_ME" target="_blank" rel="noopener">✈ Telegram</a>
-      <div class="pill"><span class="dot"></span>SYSTEM · AUTONOMOUS</div>
+    <div class="hdr-right">
+      <a class="tg-link" href="https://t.me/CHANGE_ME" target="_blank" rel="noopener" data-i18n="tg-label">✈ Telegram</a>
+      <div class="pill"><span class="dot"></span><span data-i18n="pill">SYSTEM · AUTONOMOUS</span></div>
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="it">IT</button>
+      </div>
     </div>
   </header>
 
   <div class="hero">
     <h1>GIANO</h1>
-    <div class="sub">Autonomous Multi-Market Trading Organism</div>
-    <p>A self-operating algorithmic system that senses every market, allocates capital where the edge lives, and manages risk with rigid, machine-enforced discipline — 24/7.</p>
-    <div class="tag">Core doctrine — <b>the edge is in the management, not the entry.</b></div>
+    <div class="sub" data-i18n="hero-sub">Autonomous Multi-Market Trading Organism</div>
+    <p data-i18n="hero-p">A self-operating algorithmic system that senses every market, allocates capital where the edge lives, and manages risk with rigid, machine-enforced discipline — 24/7.</p>
+    <div class="tag" data-i18n="hero-tag">Core doctrine — <b>the edge is in the management, not the entry.</b></div>
     <div class="cta-row">
-      <a class="btn" href="https://t.me/CHANGE_ME" target="_blank" rel="noopener">✈ Join on Telegram</a>
-      <a class="btn-outline" href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">↗ All projects</a>
+      <a class="btn" href="https://t.me/CHANGE_ME" target="_blank" rel="noopener" data-i18n="btn-tg">✈ Join on Telegram</a>
+      <a class="btn-outline" href="https://linkvibes.netlify.app/" target="_blank" rel="noopener" data-i18n="btn-projects">↗ All projects</a>
     </div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="n">6</div><div class="l">Market Engines</div></div>
-    <div class="stat"><div class="n">24/7</div><div class="l">Autonomous</div></div>
-    <div class="stat"><div class="n">~3s</div><div class="l">Signal → Order</div></div>
-    <div class="stat"><div class="n">LLM</div><div class="l">Driven Decisioning</div></div>
+    <div class="stat"><div class="n">6</div><div class="l" data-i18n="stat1">Market Engines</div></div>
+    <div class="stat"><div class="n">24/7</div><div class="l" data-i18n="stat2">Autonomous</div></div>
+    <div class="stat"><div class="n">~3s</div><div class="l" data-i18n="stat3">Signal → Order</div></div>
+    <div class="stat"><div class="n">LLM</div><div class="l" data-i18n="stat4">Driven Decisioning</div></div>
   </div>
 
   <section>
-    <div class="eyebrow">Architecture</div>
-    <h2>One organism, many nerves</h2>
-    <p class="lead">Independent engines trade their own markets through isolated broker bridges, coordinated by a macro brain that allocates risk by regime — never amputating a market, always weighting toward the validated edge.</p>
+    <div class="eyebrow" data-i18n="eb-arch">Architecture</div>
+    <h2 data-i18n="h2-arch">One organism, many nerves</h2>
+    <p class="lead" data-i18n="lead-arch">Independent engines trade their own markets through isolated broker bridges, coordinated by a macro brain that allocates risk by regime — never amputating a market, always weighting toward the validated edge.</p>
     <div class="grid">
-      <div class="card"><h3><span class="ic">▣</span> Market Engines</h3><p>Dedicated engines for gold scalping & swing, crypto, FX and equities — each with its own management mechanics (grid add-ons, break-even, trailing, time-exit).</p></div>
-      <div class="card"><h3><span class="ic">◈</span> Macro Brain</h3><p>A regime/sentiment layer publishes risk-on/off bias and volatility-aware sizing consumed by every engine — a meta-allocator that follows the regime, not the hype.</p></div>
-      <div class="card"><h3><span class="ic">⇆</span> Broker Bridges</h3><p>Containerized MT5/REST bridges per account, fully isolated, with a reconciliation layer that treats the broker as the single source of truth.</p></div>
-      <div class="card"><h3><span class="ic">✦</span> LLM Committee</h3><p>Language models interpret news, sentiment and free-text signals — turning unstructured input into structured, pondered trading decisions.</p></div>
-      <div class="card"><h3><span class="ic">⟲</span> Management-Aware Backtester</h3><p>A replay engine that models the actual management (add-ons, BE, trailing, costs) — validating the edge out-of-sample before a single euro is scaled.</p></div>
-      <div class="card"><h3><span class="ic">🛰</span> Live Signal Relay</h3><p>External signals captured and executed in seconds via a low-latency automation chain — with anti-stale and anti-duplicate guards.</p></div>
+      <div class="card"><h3><span class="ic">▣</span> <span data-i18n="card1-h">Market Engines</span></h3><p data-i18n="card1-p">Dedicated engines for gold scalping & swing, crypto, FX and equities — each with its own management mechanics (grid add-ons, break-even, trailing, time-exit).</p></div>
+      <div class="card"><h3><span class="ic">◈</span> <span data-i18n="card2-h">Macro Brain</span></h3><p data-i18n="card2-p">A regime/sentiment layer publishes risk-on/off bias and volatility-aware sizing consumed by every engine — a meta-allocator that follows the regime, not the hype.</p></div>
+      <div class="card"><h3><span class="ic">⇆</span> <span data-i18n="card3-h">Broker Bridges</span></h3><p data-i18n="card3-p">Containerized MT5/REST bridges per account, fully isolated, with a reconciliation layer that treats the broker as the single source of truth.</p></div>
+      <div class="card"><h3><span class="ic">✦</span> <span data-i18n="card4-h">LLM Committee</span></h3><p data-i18n="card4-p">Language models interpret news, sentiment and free-text signals — turning unstructured input into structured, pondered trading decisions.</p></div>
+      <div class="card"><h3><span class="ic">⟲</span> <span data-i18n="card5-h">Management-Aware Backtester</span></h3><p data-i18n="card5-p">A replay engine that models the actual management (add-ons, BE, trailing, costs) — validating the edge out-of-sample before a single euro is scaled.</p></div>
+      <div class="card"><h3><span class="ic">🛰</span> <span data-i18n="card6-h">Live Signal Relay</span></h3><p data-i18n="card6-p">External signals captured and executed in seconds via a low-latency automation chain — with anti-stale and anti-duplicate guards.</p></div>
     </div>
   </section>
 
   <section>
-    <div class="eyebrow">Doctrine</div>
-    <h2>Rigid rules, measured truth</h2>
-    <p class="lead">Principles distilled from hundreds of audits — the philosophy that keeps the system honest.</p>
+    <div class="eyebrow" data-i18n="eb-track">Track Record</div>
+    <h2 data-i18n="h2-track">Built in iterations, not on slides</h2>
+    <p class="lead" data-i18n="lead-track">Every capability above shipped as its own validated phase before the next was added — the timeline below is the real build order.</p>
+
+    <div class="chart-wrap">
+      <span class="chart-badge" data-i18n="chart-badge">Illustrative curve — not account data</span>
+      <svg viewBox="0 0 600 160" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f0fb29" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#f0fb29" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <line x1="0" y1="20" x2="600" y2="20"/>
+          <line x1="0" y1="60" x2="600" y2="60"/>
+          <line x1="0" y1="100" x2="600" y2="100"/>
+          <line x1="0" y1="140" x2="600" y2="140"/>
+        </g>
+        <path d="M0,140 L0,128 C40,124 60,132 90,118 C130,100 150,112 190,96 C230,80 250,90 290,74 C330,58 350,70 390,54 C430,38 450,48 490,32 C530,16 550,24 600,10 L600,140 Z" fill="url(#fillGrad)"/>
+        <path d="M0,128 C40,124 60,132 90,118 C130,100 150,112 190,96 C230,80 250,90 290,74 C330,58 350,70 390,54 C430,38 450,48 490,32 C530,16 550,24 600,10"
+              fill="none" stroke="#f0fb29" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><b data-i18n="tl1-b">Core Engine</b><span data-i18n="tl1-s">A single disciplined engine proves the management edge before anything else gets built.</span></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><b data-i18n="tl2-b">Macro Brain</b><span data-i18n="tl2-s">Regime and sentiment layers start allocating risk across markets, not just within one.</span></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><b data-i18n="tl3-b">LLM Committee</b><span data-i18n="tl3-s">Language models join the loop, turning unstructured signals into structured decisions.</span></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><b data-i18n="tl4-b">Live Signal Relay</b><span data-i18n="tl4-s">External signals go from notification to order in seconds, with anti-stale guards.</span></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-body"><b data-i18n="tl5-b">Management-Aware Backtester</b><span data-i18n="tl5-s">Every edge is validated out-of-sample against the real management mechanics before it's scaled.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow" data-i18n="eb-doc">Doctrine</div>
+    <h2 data-i18n="h2-doc">Rigid rules, measured truth</h2>
+    <p class="lead" data-i18n="lead-doc">Principles distilled from hundreds of audits — the philosophy that keeps the system honest.</p>
     <div class="doctrine">
-      <div class="principle"><b>The edge is in the management.</b><span>Entries are commodities; the durable advantage lives in how a position is grown, protected and exited.</span></div>
-      <div class="principle"><b>Validate before you trust.</b><span>Every metric reconciles to the broker. No number drives a decision until it survives out-of-sample, cost-corrected testing.</span></div>
-      <div class="principle"><b>Allocate by regime, not by recency.</b><span>Capital flows to where the edge structurally is — avoiding the performance-chasing trap of short-window optimization.</span></div>
+      <div class="principle"><b data-i18n="doc1-b">The edge is in the management.</b><span data-i18n="doc1-s">Entries are commodities; the durable advantage lives in how a position is grown, protected and exited.</span></div>
+      <div class="principle"><b data-i18n="doc2-b">Validate before you trust.</b><span data-i18n="doc2-s">Every metric reconciles to the broker. No number drives a decision until it survives out-of-sample, cost-corrected testing.</span></div>
+      <div class="principle"><b data-i18n="doc3-b">Allocate by regime, not by recency.</b><span data-i18n="doc3-s">Capital flows to where the edge structurally is — avoiding the performance-chasing trap of short-window optimization.</span></div>
     </div>
   </section>
 
   <section>
-    <div class="eyebrow">Signal Relay</div>
-    <h2>From notification to position in seconds</h2>
-    <p class="lead">An automation chain collapses minutes of manual latency into a near-instant, fully background pipeline.</p>
+    <div class="eyebrow" data-i18n="eb-relay">Signal Relay</div>
+    <h2 data-i18n="h2-relay">From notification to position in seconds</h2>
+    <p class="lead" data-i18n="lead-relay">An automation chain collapses minutes of manual latency into a near-instant, fully background pipeline.</p>
     <div class="flow">
-      <span class="step">Signal received</span> <span class="arr">→</span> <span class="step">intercept</span> <span class="arr">→</span> <span class="step">secure webhook</span> <span class="arr">→</span> <span class="step">LLM interpretation</span> <span class="arr">→</span> <span class="step">risk &amp; staleness checks</span> <span class="arr">→</span> <span class="step">order placed</span>
+      <span class="step" data-i18n="flow1">Signal received</span> <span class="arr">→</span> <span class="step" data-i18n="flow2">intercept</span> <span class="arr">→</span> <span class="step" data-i18n="flow3">secure webhook</span> <span class="arr">→</span> <span class="step" data-i18n="flow4">LLM interpretation</span> <span class="arr">→</span> <span class="step" data-i18n="flow5">risk &amp; staleness checks</span> <span class="arr">→</span> <span class="step" data-i18n="flow6">order placed</span>
     </div>
   </section>
 
   <section>
-    <div class="eyebrow">Stack</div>
-    <h2>Built for resilience</h2>
+    <div class="eyebrow" data-i18n="eb-stack">Stack</div>
+    <h2 data-i18n="h2-stack">Built for resilience</h2>
     <div class="stack">
-      <div class="chip"><b>Python</b> · async core</div>
-      <div class="chip"><b>Docker</b> · isolated services</div>
+      <div class="chip"><b>Python</b> <span data-i18n="chip1"> · async core</span></div>
+      <div class="chip"><b>Docker</b> <span data-i18n="chip2"> · isolated services</span></div>
       <div class="chip"><b>PostgreSQL / TimescaleDB</b></div>
-      <div class="chip"><b>Redis</b> · state &amp; bus</div>
-      <div class="chip"><b>ZeroMQ</b> · broker bridges</div>
-      <div class="chip"><b>LLMs</b> · committee</div>
-      <div class="chip"><b>Tailscale</b> · private mesh</div>
-      <div class="chip"><b>NAS</b> · disaster recovery</div>
+      <div class="chip"><b>Redis</b> <span data-i18n="chip3"> · state &amp; bus</span></div>
+      <div class="chip"><b>ZeroMQ</b> <span data-i18n="chip4"> · broker bridges</span></div>
+      <div class="chip"><b>LLMs</b> <span data-i18n="chip5"> · committee</span></div>
+      <div class="chip"><b>Tailscale</b> <span data-i18n="chip6"> · private mesh</span></div>
+      <div class="chip"><b>NAS</b> <span data-i18n="chip7"> · disaster recovery</span></div>
     </div>
   </section>
 
   <section class="creator">
     <img class="avatar" src="https://avatars.githubusercontent.com/u/4179048" alt="Alessandro Lupi"
          onerror="this.style.display='none'">
-    <div class="eyebrow">Creator</div>
+    <div class="eyebrow" data-i18n="eb-creator">Creator</div>
     <h2>Alessandro Lupi</h2>
-    <p class="lead">Computer Engineering · programming, creation, innovation. Giano is one of several projects — explore the rest on my hub.</p>
-    <a class="btn" href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">↗ All my projects · LinkVibes</a>
+    <p class="lead" data-i18n="creator-lead">Computer Engineering · programming, creation, innovation. Giano is one of several projects — explore the rest on my hub.</p>
+    <a class="btn" href="https://linkvibes.netlify.app/" target="_blank" rel="noopener" data-i18n="btn-allprojects2">↗ All my projects · LinkVibes</a>
   </section>
 
   <footer>
-    <div>◢ <b>GIANO</b> — engineered by <a href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">Alessandro Lupi</a> · BlockRock · MMXXVI</div>
-    <p class="disc">Showcase page. Describes architecture &amp; methodology only — contains no live data, account information, or trading signals. Not financial advice.</p>
+    <div data-i18n="footer-line">◢ <b>GIANO</b> — engineered by <a href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">Alessandro Lupi</a> · BlockRock · MMXXVI</div>
+    <p class="disc" data-i18n="disc">Showcase page. Describes architecture &amp; methodology only — contains no live data, account information, or trading signals. Not financial advice.</p>
   </footer>
 
 </div>
+
+<script>
+const I18N = {
+  en: {
+    "tg-label":"✈ Telegram","pill":"SYSTEM · AUTONOMOUS",
+    "hero-sub":"Autonomous Multi-Market Trading Organism",
+    "hero-p":"A self-operating algorithmic system that senses every market, allocates capital where the edge lives, and manages risk with rigid, machine-enforced discipline — 24/7.",
+    "hero-tag":"Core doctrine — <b>the edge is in the management, not the entry.</b>",
+    "btn-tg":"✈ Join on Telegram","btn-projects":"↗ All projects",
+    "stat1":"Market Engines","stat2":"Autonomous","stat3":"Signal → Order","stat4":"Driven Decisioning",
+    "eb-arch":"Architecture","h2-arch":"One organism, many nerves",
+    "lead-arch":"Independent engines trade their own markets through isolated broker bridges, coordinated by a macro brain that allocates risk by regime — never amputating a market, always weighting toward the validated edge.",
+    "card1-h":"Market Engines","card1-p":"Dedicated engines for gold scalping & swing, crypto, FX and equities — each with its own management mechanics (grid add-ons, break-even, trailing, time-exit).",
+    "card2-h":"Macro Brain","card2-p":"A regime/sentiment layer publishes risk-on/off bias and volatility-aware sizing consumed by every engine — a meta-allocator that follows the regime, not the hype.",
+    "card3-h":"Broker Bridges","card3-p":"Containerized MT5/REST bridges per account, fully isolated, with a reconciliation layer that treats the broker as the single source of truth.",
+    "card4-h":"LLM Committee","card4-p":"Language models interpret news, sentiment and free-text signals — turning unstructured input into structured, pondered trading decisions.",
+    "card5-h":"Management-Aware Backtester","card5-p":"A replay engine that models the actual management (add-ons, BE, trailing, costs) — validating the edge out-of-sample before a single euro is scaled.",
+    "card6-h":"Live Signal Relay","card6-p":"External signals captured and executed in seconds via a low-latency automation chain — with anti-stale and anti-duplicate guards.",
+    "eb-track":"Track Record","h2-track":"Built in iterations, not on slides",
+    "lead-track":"Every capability above shipped as its own validated phase before the next was added — the timeline below is the real build order.",
+    "chart-badge":"Illustrative curve — not account data",
+    "tl1-b":"Core Engine","tl1-s":"A single disciplined engine proves the management edge before anything else gets built.",
+    "tl2-b":"Macro Brain","tl2-s":"Regime and sentiment layers start allocating risk across markets, not just within one.",
+    "tl3-b":"LLM Committee","tl3-s":"Language models join the loop, turning unstructured signals into structured decisions.",
+    "tl4-b":"Live Signal Relay","tl4-s":"External signals go from notification to order in seconds, with anti-stale guards.",
+    "tl5-b":"Management-Aware Backtester","tl5-s":"Every edge is validated out-of-sample against the real management mechanics before it's scaled.",
+    "eb-doc":"Doctrine","h2-doc":"Rigid rules, measured truth","lead-doc":"Principles distilled from hundreds of audits — the philosophy that keeps the system honest.",
+    "doc1-b":"The edge is in the management.","doc1-s":"Entries are commodities; the durable advantage lives in how a position is grown, protected and exited.",
+    "doc2-b":"Validate before you trust.","doc2-s":"Every metric reconciles to the broker. No number drives a decision until it survives out-of-sample, cost-corrected testing.",
+    "doc3-b":"Allocate by regime, not by recency.","doc3-s":"Capital flows to where the edge structurally is — avoiding the performance-chasing trap of short-window optimization.",
+    "eb-relay":"Signal Relay","h2-relay":"From notification to position in seconds",
+    "lead-relay":"An automation chain collapses minutes of manual latency into a near-instant, fully background pipeline.",
+    "flow1":"Signal received","flow2":"intercept","flow3":"secure webhook","flow4":"LLM interpretation","flow5":"risk &amp; staleness checks","flow6":"order placed",
+    "eb-stack":"Stack","h2-stack":"Built for resilience",
+    "chip1":" · async core","chip2":" · isolated services","chip3":" · state &amp; bus","chip4":" · broker bridges","chip5":" · committee","chip6":" · private mesh","chip7":" · disaster recovery",
+    "eb-creator":"Creator",
+    "creator-lead":"Computer Engineering · programming, creation, innovation. Giano is one of several projects — explore the rest on my hub.",
+    "btn-allprojects2":"↗ All my projects · LinkVibes",
+    "footer-line":'◢ <b>GIANO</b> — engineered by <a href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">Alessandro Lupi</a> · BlockRock · MMXXVI',
+    "disc":"Showcase page. Describes architecture &amp; methodology only — contains no live data, account information, or trading signals. Not financial advice."
+  },
+  it: {
+    "tg-label":"✈ Telegram","pill":"SISTEMA · AUTONOMO",
+    "hero-sub":"Organismo di Trading Autonomo Multi-Mercato",
+    "hero-p":"Un sistema algoritmico che opera da solo, sente ogni mercato, alloca il capitale dove vive il vantaggio e gestisce il rischio con una disciplina rigida, imposta dalla macchina — 24/7.",
+    "hero-tag":"Dottrina fondamentale — <b>il vantaggio sta nella gestione, non nell'ingresso.</b>",
+    "btn-tg":"✈ Entra su Telegram","btn-projects":"↗ Tutti i progetti",
+    "stat1":"Motori di Mercato","stat2":"Autonomo","stat3":"Segnale → Ordine","stat4":"Decisioni Guidate",
+    "eb-arch":"Architettura","h2-arch":"Un organismo, tanti nervi",
+    "lead-arch":"Motori indipendenti operano sui propri mercati attraverso ponti broker isolati, coordinati da un cervello macro che alloca il rischio per regime — mai amputando un mercato, sempre pesando verso il vantaggio validato.",
+    "card1-h":"Motori di Mercato","card1-p":"Motori dedicati per oro scalping & swing, crypto, forex ed equity — ognuno con la propria meccanica di gestione (griglie add-on, break-even, trailing, uscita a tempo).",
+    "card2-h":"Cervello Macro","card2-p":"Un livello di regime/sentiment pubblica un bias risk-on/off e un sizing sensibile alla volatilità, consumato da ogni motore — un meta-allocatore che segue il regime, non l'hype.",
+    "card3-h":"Ponti Broker","card3-p":"Ponti MT5/REST containerizzati per ogni conto, completamente isolati, con un livello di riconciliazione che tratta il broker come unica fonte di verità.",
+    "card4-h":"Comitato LLM","card4-p":"I modelli linguistici interpretano notizie, sentiment e segnali in testo libero — trasformando input non strutturato in decisioni di trading strutturate e ponderate.",
+    "card5-h":"Backtester Consapevole della Gestione","card5-p":"Un motore di replay che modella la gestione reale (add-on, BE, trailing, costi) — validando il vantaggio out-of-sample prima di scalare anche un solo euro.",
+    "card6-h":"Relay Segnali Live","card6-p":"Segnali esterni catturati ed eseguiti in pochi secondi tramite una catena di automazione a bassa latenza — con protezioni anti-stale e anti-duplicato.",
+    "eb-track":"Storico","h2-track":"Costruito per iterazioni, non su slide",
+    "lead-track":"Ogni capacità qui sopra è nata come una fase validata prima di aggiungere la successiva — la timeline qui sotto è il reale ordine di costruzione.",
+    "chart-badge":"Curva illustrativa — non dati di conto",
+    "tl1-b":"Motore Core","tl1-s":"Un solo motore disciplinato dimostra il vantaggio della gestione prima di costruire il resto.",
+    "tl2-b":"Cervello Macro","tl2-s":"I livelli di regime e sentiment iniziano ad allocare il rischio tra i mercati, non solo al loro interno.",
+    "tl3-b":"Comitato LLM","tl3-s":"I modelli linguistici entrano nel ciclo, trasformando segnali non strutturati in decisioni strutturate.",
+    "tl4-b":"Relay Segnali Live","tl4-s":"I segnali esterni passano dalla notifica all'ordine in pochi secondi, con protezioni anti-stale.",
+    "tl5-b":"Backtester Consapevole della Gestione","tl5-s":"Ogni vantaggio viene validato out-of-sample sulla gestione reale prima di essere scalato.",
+    "eb-doc":"Dottrina","h2-doc":"Regole rigide, verità misurata","lead-doc":"Principi distillati da centinaia di audit — la filosofia che tiene onesto il sistema.",
+    "doc1-b":"Il vantaggio sta nella gestione.","doc1-s":"Gli ingressi sono commodity; il vantaggio duraturo vive in come una posizione viene fatta crescere, protetta e chiusa.",
+    "doc2-b":"Valida prima di fidarti.","doc2-s":"Ogni metrica si riconcilia col broker. Nessun numero guida una decisione finché non supera un test out-of-sample, corretto per i costi.",
+    "doc3-b":"Alloca per regime, non per recency.","doc3-s":"Il capitale va dove il vantaggio è strutturalmente presente — evitando la trappola dell'inseguire la performance su finestre corte.",
+    "eb-relay":"Relay Segnali","h2-relay":"Dalla notifica alla posizione in pochi secondi",
+    "lead-relay":"Una catena di automazione comprime minuti di latenza manuale in una pipeline quasi istantanea e completamente in background.",
+    "flow1":"Segnale ricevuto","flow2":"intercettazione","flow3":"webhook sicuro","flow4":"interpretazione LLM","flow5":"controlli rischio &amp; staleness","flow6":"ordine inviato",
+    "eb-stack":"Stack","h2-stack":"Costruito per resistere",
+    "chip1":" · core async","chip2":" · servizi isolati","chip3":" · stato &amp; bus","chip4":" · ponti broker","chip5":" · comitato","chip6":" · rete privata","chip7":" · disaster recovery",
+    "eb-creator":"Creatore",
+    "creator-lead":"Ingegneria Informatica · programmazione, creazione, innovazione. Giano è uno dei vari progetti — esplora gli altri sul mio hub.",
+    "btn-allprojects2":"↗ Tutti i miei progetti · LinkVibes",
+    "footer-line":'◢ <b>GIANO</b> — sviluppato da <a href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">Alessandro Lupi</a> · BlockRock · MMXXVI',
+    "disc":"Pagina vetrina. Descrive solo architettura e metodologia — nessun dato live, informazione di conto o segnale di trading. Non è consulenza finanziaria."
+  }
+};
+
+function setLang(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(I18N[lang] && I18N[lang][key] !== undefined) el.innerHTML = I18N[lang][key];
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  try{ localStorage.setItem('giano_lang', lang); }catch(e){}
+}
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+let initial = 'en';
+try{
+  const saved = localStorage.getItem('giano_lang');
+  if(saved === 'it' || saved === 'en') initial = saved;
+  else if(navigator.language && navigator.language.toLowerCase().startsWith('it')) initial = 'it';
+}catch(e){}
+setLang(initial);
+</script>
 </body>
 </html>
