@@ -104,12 +104,13 @@
     border:1px solid var(--line);border-radius:8px;padding:24px;font-size:13px;color:var(--dim);overflow-x:auto}
   .flow .step{color:var(--txt)} .flow .arr{color:var(--acc)}
 
-  /* Track record: illustrative chart + timeline */
+  /* Track record: real demo-account curve + timeline */
   .chart-wrap{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     border:1px solid var(--line);border-radius:8px;padding:20px;margin-bottom:22px}
   .chart-badge{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;
     margin-bottom:14px;display:inline-block;border:1px dashed var(--line);border-radius:4px;padding:4px 10px}
   .chart-wrap svg{width:100%;height:auto;display:block}
+  .chart-note{font-size:11px;color:#5b6478;margin-top:12px}
   .timeline{display:grid;gap:2px}
   .tl-item{display:flex;gap:16px;padding:16px 4px;border-top:1px solid var(--line)}
   .tl-item:first-child{border-top:none}
@@ -163,6 +164,18 @@
   </div>
 
   <section>
+    <div class="eyebrow" data-i18n="eb-markets">Markets</div>
+    <h2 data-i18n="h2-markets">Four markets, one discipline</h2>
+    <p class="lead" data-i18n="lead-markets">Every market runs on its own isolated engine and broker bridge — nothing shares risk with anything else.</p>
+    <div class="stack">
+      <div class="chip"><b data-i18n="mkt1-b">Gold (XAU)</b> <span data-i18n="mkt1-s"> · scalping &amp; swing</span></div>
+      <div class="chip"><b data-i18n="mkt2-b">Forex</b> <span data-i18n="mkt2-s"> · majors</span></div>
+      <div class="chip"><b data-i18n="mkt3-b">Crypto</b></div>
+      <div class="chip"><b data-i18n="mkt4-b">Equities</b> <span data-i18n="mkt4-s"> · fractional</span></div>
+    </div>
+  </section>
+
+  <section>
     <div class="eyebrow" data-i18n="eb-arch">Architecture</div>
     <h2 data-i18n="h2-arch">One organism, many nerves</h2>
     <p class="lead" data-i18n="lead-arch">Independent engines trade their own markets through isolated broker bridges, coordinated by a macro brain that allocates risk by regime — never amputating a market, always weighting toward the validated edge.</p>
@@ -182,7 +195,7 @@
     <p class="lead" data-i18n="lead-track">Every capability above shipped as its own validated phase before the next was added — the timeline below is the real build order.</p>
 
     <div class="chart-wrap">
-      <span class="chart-badge" data-i18n="chart-badge">Illustrative curve — not account data</span>
+      <span class="chart-badge" data-i18n="chart-badge">Real data · XAU demo account · last 6 weeks</span>
       <svg viewBox="0 0 600 160" preserveAspectRatio="none">
         <defs>
           <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
@@ -196,10 +209,11 @@
           <line x1="0" y1="100" x2="600" y2="100"/>
           <line x1="0" y1="140" x2="600" y2="140"/>
         </g>
-        <path d="M0,140 L0,128 C40,124 60,132 90,118 C130,100 150,112 190,96 C230,80 250,90 290,74 C330,58 350,70 390,54 C430,38 450,48 490,32 C530,16 550,24 600,10 L600,140 Z" fill="url(#fillGrad)"/>
-        <path d="M0,128 C40,124 60,132 90,118 C130,100 150,112 190,96 C230,80 250,90 290,74 C330,58 350,70 390,54 C430,38 450,48 490,32 C530,16 550,24 600,10"
+        <path d="M0.0,145 L0.0,19.9 L18.8,15.0 L37.5,37.2 L56.2,38.8 L75.0,42.4 L93.8,42.6 L112.5,50.0 L131.2,48.6 L150.0,47.5 L168.8,70.1 L187.5,69.9 L206.2,80.6 L225.0,89.4 L243.8,74.2 L262.5,72.5 L281.2,89.9 L300.0,90.7 L318.8,89.7 L337.5,86.9 L356.2,108.4 L375.0,120.4 L393.8,129.5 L412.5,131.0 L431.2,131.6 L450.0,130.6 L468.8,145.0 L487.5,144.8 L506.2,136.6 L525.0,126.9 L543.8,143.2 L562.5,137.1 L581.2,140.0 L600.0,144.0 L600.0,145 Z" fill="url(#fillGrad)"/>
+        <path d="M0.0,19.9 L18.8,15.0 L37.5,37.2 L56.2,38.8 L75.0,42.4 L93.8,42.6 L112.5,50.0 L131.2,48.6 L150.0,47.5 L168.8,70.1 L187.5,69.9 L206.2,80.6 L225.0,89.4 L243.8,74.2 L262.5,72.5 L281.2,89.9 L300.0,90.7 L318.8,89.7 L337.5,86.9 L356.2,108.4 L375.0,120.4 L393.8,129.5 L412.5,131.0 L431.2,131.6 L450.0,130.6 L468.8,145.0 L487.5,144.8 L506.2,136.6 L525.0,126.9 L543.8,143.2 L562.5,137.1 L581.2,140.0 L600.0,144.0"
               fill="none" stroke="#f0fb29" stroke-width="2.5" stroke-linecap="round"/>
       </svg>
+      <div class="chart-note" data-i18n="chart-note">Cumulative P&amp;L, XAU scalping engine — demo account, no real capital involved. Past performance is not indicative of future results.</div>
     </div>
 
     <div class="timeline">
@@ -257,7 +271,7 @@
 
   <footer>
     <div data-i18n="footer-line">◢ <b>GIANO</b> — engineered by <a href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">Alessandro Lupi</a> · BlockRock · MMXXVI</div>
-    <p class="disc" data-i18n="disc">Showcase page. Describes architecture &amp; methodology only — contains no live data, account information, or trading signals. Not financial advice.</p>
+    <p class="disc" data-i18n="disc">Showcase page. Describes architecture &amp; methodology; any performance data shown is from a demo account, never a real one, and is not a trading signal. Not financial advice.</p>
   </footer>
 
 </div>
@@ -271,6 +285,9 @@ const I18N = {
     "hero-tag":"Core doctrine — <b>the edge is in the management, not the entry.</b>",
     "btn-tg":"✈ Join on Telegram","btn-projects":"↗ All projects",
     "stat1":"Market Engines","stat2":"Autonomous","stat3":"Signal → Order","stat4":"Driven Decisioning",
+    "eb-markets":"Markets","h2-markets":"Four markets, one discipline",
+    "lead-markets":"Every market runs on its own isolated engine and broker bridge — nothing shares risk with anything else.",
+    "mkt1-b":"Gold (XAU)","mkt1-s":" · scalping &amp; swing","mkt2-b":"Forex","mkt2-s":" · majors","mkt3-b":"Crypto","mkt4-b":"Equities","mkt4-s":" · fractional",
     "eb-arch":"Architecture","h2-arch":"One organism, many nerves",
     "lead-arch":"Independent engines trade their own markets through isolated broker bridges, coordinated by a macro brain that allocates risk by regime — never amputating a market, always weighting toward the validated edge.",
     "card1-h":"Market Engines","card1-p":"Dedicated engines for gold scalping & swing, crypto, FX and equities — each with its own management mechanics (grid add-ons, break-even, trailing, time-exit).",
@@ -281,7 +298,8 @@ const I18N = {
     "card6-h":"Live Signal Relay","card6-p":"External signals captured and executed in seconds via a low-latency automation chain — with anti-stale and anti-duplicate guards.",
     "eb-track":"Track Record","h2-track":"Built in iterations, not on slides",
     "lead-track":"Every capability above shipped as its own validated phase before the next was added — the timeline below is the real build order.",
-    "chart-badge":"Illustrative curve — not account data",
+    "chart-badge":"Real data · XAU demo account · last 6 weeks",
+    "chart-note":"Cumulative P&amp;L, XAU scalping engine — demo account, no real capital involved. Past performance is not indicative of future results.",
     "tl1-b":"Core Engine","tl1-s":"A single disciplined engine proves the management edge before anything else gets built.",
     "tl2-b":"Macro Brain","tl2-s":"Regime and sentiment layers start allocating risk across markets, not just within one.",
     "tl3-b":"LLM Committee","tl3-s":"Language models join the loop, turning unstructured signals into structured decisions.",
@@ -300,7 +318,7 @@ const I18N = {
     "creator-lead":"Computer Engineering · programming, creation, innovation. Giano is one of several projects — explore the rest on my hub.",
     "btn-allprojects2":"↗ All my projects · LinkVibes",
     "footer-line":'◢ <b>GIANO</b> — engineered by <a href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">Alessandro Lupi</a> · BlockRock · MMXXVI',
-    "disc":"Showcase page. Describes architecture &amp; methodology only — contains no live data, account information, or trading signals. Not financial advice."
+    "disc":"Showcase page. Describes architecture &amp; methodology; any performance data shown is from a demo account, never a real one, and is not a trading signal. Not financial advice."
   },
   it: {
     "tg-label":"✈ Telegram","pill":"SISTEMA · AUTONOMO",
@@ -309,6 +327,9 @@ const I18N = {
     "hero-tag":"Dottrina fondamentale — <b>il vantaggio sta nella gestione, non nell'ingresso.</b>",
     "btn-tg":"✈ Entra su Telegram","btn-projects":"↗ Tutti i progetti",
     "stat1":"Motori di Mercato","stat2":"Autonomo","stat3":"Segnale → Ordine","stat4":"Decisioni Guidate",
+    "eb-markets":"Mercati","h2-markets":"Quattro mercati, una sola disciplina",
+    "lead-markets":"Ogni mercato gira sul proprio motore isolato e sul proprio ponte broker — nessuno condivide rischio con gli altri.",
+    "mkt1-b":"Oro (XAU)","mkt1-s":" · scalping &amp; swing","mkt2-b":"Forex","mkt2-s":" · majors","mkt3-b":"Crypto","mkt4-b":"Azionario","mkt4-s":" · frazionario",
     "eb-arch":"Architettura","h2-arch":"Un organismo, tanti nervi",
     "lead-arch":"Motori indipendenti operano sui propri mercati attraverso ponti broker isolati, coordinati da un cervello macro che alloca il rischio per regime — mai amputando un mercato, sempre pesando verso il vantaggio validato.",
     "card1-h":"Motori di Mercato","card1-p":"Motori dedicati per oro scalping & swing, crypto, forex ed equity — ognuno con la propria meccanica di gestione (griglie add-on, break-even, trailing, uscita a tempo).",
@@ -319,7 +340,8 @@ const I18N = {
     "card6-h":"Relay Segnali Live","card6-p":"Segnali esterni catturati ed eseguiti in pochi secondi tramite una catena di automazione a bassa latenza — con protezioni anti-stale e anti-duplicato.",
     "eb-track":"Storico","h2-track":"Costruito per iterazioni, non su slide",
     "lead-track":"Ogni capacità qui sopra è nata come una fase validata prima di aggiungere la successiva — la timeline qui sotto è il reale ordine di costruzione.",
-    "chart-badge":"Curva illustrativa — non dati di conto",
+    "chart-badge":"Dati reali · conto demo XAU · ultime 6 settimane",
+    "chart-note":"P&amp;L cumulato, motore scalping XAU — conto demo, nessun capitale reale coinvolto. Le performance passate non sono indicative di risultati futuri.",
     "tl1-b":"Motore Core","tl1-s":"Un solo motore disciplinato dimostra il vantaggio della gestione prima di costruire il resto.",
     "tl2-b":"Cervello Macro","tl2-s":"I livelli di regime e sentiment iniziano ad allocare il rischio tra i mercati, non solo al loro interno.",
     "tl3-b":"Comitato LLM","tl3-s":"I modelli linguistici entrano nel ciclo, trasformando segnali non strutturati in decisioni strutturate.",
@@ -338,7 +360,7 @@ const I18N = {
     "creator-lead":"Ingegneria Informatica · programmazione, creazione, innovazione. Giano è uno dei vari progetti — esplora gli altri sul mio hub.",
     "btn-allprojects2":"↗ Tutti i miei progetti · LinkVibes",
     "footer-line":'◢ <b>GIANO</b> — sviluppato da <a href="https://linkvibes.netlify.app/" target="_blank" rel="noopener">Alessandro Lupi</a> · BlockRock · MMXXVI',
-    "disc":"Pagina vetrina. Descrive solo architettura e metodologia — nessun dato live, informazione di conto o segnale di trading. Non è consulenza finanziaria."
+    "disc":"Pagina vetrina. Descrive architettura e metodologia; gli eventuali dati di performance mostrati provengono da un conto demo, mai reale, e non sono un segnale di trading. Non è consulenza finanziaria."
   }
 };
 
